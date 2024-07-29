@@ -6,53 +6,20 @@
 
 演示(github)： [碎言博客](http:/suiyan.cc/)
 
-![](img/fba.png)
-
-在线一键切换明暗色调。
-
-![](img/fbb.png)
-
-### 博客主题
-
-除了上边的默认主题，还有其他额外出题。
-
-#### free_blog 
-
-大道至简，返璞归之，这是一款侧重与内容的博客主题 本项目为碎言静态博客主题。 主题支持亮色和黑暗主题在线切换。
-
-[free_blog主题下载地址](https://github.com/bosichong/suiyan_free_blog)
-
-![](img/free_blog.png)
-
-#### simple_blog 
-
-simple_blog是一款侧重与内容的博客主题并适配移动端。 本项目为碎言静态博客主题。 主题支持亮色和黑暗主题在线切换。
-
-[simple_blog主题下载地址](https://github.com/bosichong/simple_blog)
-
-![](img/simple.jpg)
-
-
-#### coding_blog 
-
-这是一款适合程序员的简约blog主题，使用了Bootstrap 5.3 等框架，模板设计移动优先。
-[simple_blog主题下载地址](https://github.com/bosichong/coding_blog)
-
-![](img/coding-blog.png)
-
-
-使用其他主题，将主题复制到`theme`目录中，修改配置文件中的"theme": "主题目录",即可启用。
-
 
 ### 软件架构
 
-2023-03-24 新版 3.0.0 发布啦！
+2023-07-29 更新版本 3.2.0 
+
+删除了一些无用的配置和样式文件，更新窗口管理模式功能按钮
+
+2023-03-24 新版 3.0.0 发布啦.
 
 集成了jinja2的模板引擎，大大的提高了静态页面的构建速度， 支持模板主题的制作。
 
 使用了asyncio和aiofiles模块来实现异步IO操作，提高了生成静态博客页面的效率，几百页面瞬间生成。
 
-更新当前博客主题：使用了pico.css样式，大道至简，返璞归真，没有组件，只有HTML标签。
+更新当前博客主题：使用了tailwind_HyperUI样式，免费开源Tailwind CSS组件。
 
 构建博客索引并可以通过标题进行全站搜索。
 
@@ -87,13 +54,13 @@ simple_blog是一款侧重与内容的博客主题并适配移动端。 本项�
 
     python3 w.py
 
-![](img/bloggui.png)
+![](img/bloggui.jpg)
 
 终端启动命令：
 
     python s.py
 
-![](img/zhongduan1.png)
+![](img/zhongduan.jpg)
 
 可以根据自己的喜好进行选择。
 
@@ -119,74 +86,125 @@ simple_blog是一款侧重与内容的博客主题并适配移动端。 本项�
 
 首次运行建议先修改根目录下的配置文件`config.json`,这里简单介绍一下配置项:
 
-    {
-        "dev": 0,  # 调试模式，如果改为1，则使用"blog_test_url"来添加静态资源地址前缀，方便本地调试。
-        "blog_name": "碎言博客",   # 站点名称
-        "blog_name_en": "SuiYan", # 站点英文名称
-        "blog_author": "J.sky", # 站长昵称
-        "blog_description_en": "You see see you , This one day day di.",  # 站长简介
-        ## 下边是网页中的meta
-        "meta_description": " Python Django JavaScript 学习讨论,我们是一群热爱Python的程序员，人生苦短，我用JavaScript！一个不会JavaScript的Python开发者不是一个好网管。",
-        "meta_keywords":"Python,Django,JavaScript,程序员,人生苦短,我用Python",
-        "profile_image":"assets/images/touxiang.jpg",  # 头像地址
-        "blog_bg": "assets/pexels-masha-raymers-3068711.jpg", #当前站点背景图片地址
-        "theme": "default_theme", # 当前使用的主题目录名称
-        "build": "blog", # 静态文件的目录名称
-        "md_dir": "articles", #md文件目录
-        "blog_page_num":4,# 静态站点首页的数据分页数值
-        "blog_test_url":"http://127.0.0.1:5500/blog/", #本地调试是的测试地址前缀
-        "blog_url":"https://suiyan.cc/", # 你的域名，生产模式使用
-        "github":"", # 这个是你的仓库地址前缀，暂时无用。
-        # sns 图标 和地址，图标的选择，后边会说。
+        {
+        "dev": 0,
+        "blog_name": "碎言",
+        "blog_name_en": "SuiYan",
+        "blog_author": "J.sky",
+        "blog_description_en": "You see see you , This one day day di.",
+        "blog_typed": [
+            "积硅步以致千里",
+            "积怠惰以致深渊",
+            "只比你努力一点的人",
+            "其实已经甩你很远了！"
+        ],
+        "meta_description": "记录并分享个人学习Python、blender的过程和笔记,定期分享原创壁纸。Life is short, You need blender and Python！",
+        "meta_keywords":"壁纸,设计师,Blender,Python,JavaScript,程序员,人生苦短,我用Python",
+        "profile_image":"assets/images/avatar.png",
+        "blog_bg": "assets/images/bg.jpg",
+        "theme": "tailwind_HyperUI",
+        "build": "blog",
+        "md_dir": "articles",
+        "blog_page_num":12,
+        "blog_test_url":"http://192.168.0.88:5500/",
+        "blog_url":"https://suiyan.cc/",
         "blog_sns": [
             {
                 "ico": "github",
                 "url": "https://github.com/bosichong/suiyan"
             },
             {
-                "ico": "git",
+                "ico": "gitee",
                 "url": "https://gitee.com/J_Sky/suiyan"
             },
             {
-                "ico": "weibo",
-                "url": "https://weibo.com/qq285911"
+                "ico": "mail",
+                "url": "mailto:285911@gmail.com"
             },
             {
-                "ico": "qq",
-                "url": "https://user.qzone.qq.com/285911/"
-            },
-            {
-                "ico": "book",
-                "url": "https://www.zhihu.com/people/J_sky/activities"
+                "ico": "bili",
+                "url": "https://space.bilibili.com/275991552"
             },
             {
                 "ico": "rss",
                 "url": "https://suiyan.cc/rss.xml"
             }
         ],
-        # 站点的导航
         "nav": [
             {
-                "ico": "home",
-                "text": "Blog Home",
-                "url": "index.html"
-            },
-            {
                 "ico": "archive",
-                "text": "Blog Archive",
+                "text": "归档",
                 "url": "archives.html"
             },
             {
                 "ico": "tags",
-                "text": "Blog Tag",
+                "text": "标签",
                 "url": "tags.html"
+            }
+        ],
+        "links": [
+            {
+                "site_name": "小林笔记",
+                "site_url": "https://m.senlinm.cn",
+                "site_description": "轻生活，秒上签",
+                "site_avatar": "https://senlinm.s3.us-east-005.backblazeb2.com/01.png"
             },
             {
-                "ico": "user",
-                "text": "About Me",
-                "url": "aboutme.html"
+                "site_name": "zhangpingcloud",
+                "site_url": "https://www.zhangpingcloud.tech/",
+                "site_description": "编程爱好者，帅哥一个。",
+                "site_avatar": "http://suiyan.cc/assets/images/user_circle.png"
+            },
+            {
+                "site_name": "特立独行的异类",
+                "site_url": "https://www.demochen.com",
+                "site_description": "一张肆无忌惮的脸，一颗桀骜不驯的心。",
+                "site_avatar": "https://www.demochen.com/images/avatar.png"
+            },
+            {
+                "site_name": "八咫乌",
+                "site_url": "https://www.vergilisme.com/",
+                "site_description": "思君如满月，夜夜减清辉",
+                "site_avatar": "https://www.vergilisme.com/usr/themes/Lumieres/fonts/logo_vertical.svg"
+            },
+            {
+                "site_name": "ScarSu - 终身成长,前端技术,信息源",
+                "site_url": "https://www.scarsu.com",
+                "site_description": "96女性程序员，以终身成长为人生意义，热爱前端技术，喜欢读各种书，关注效率提升、自我管理、心智成长、认知提升、极简生活。",
+                "site_avatar": "https://scarsu.oss-cn-shanghai.aliyuncs.com/picgo20201012144739.jpg"
+            },
+            {
+                "site_name": "BORBER",
+                "site_url": "https://blog.borber.top/",
+                "site_description": "跌宕歌词 纵横书卷 不与遣年华",
+                "site_avatar": "https://cdn.jsdelivr.net/gh/Borber/PublicPic1/headImg/head.png"
+            },
+            {
+                "site_name": "胡涂说",
+                "site_url": "https://hutusi.com/",
+                "site_description": "中文独立博客，任抛星汉归园圃，留取乾坤盛酒囊。",
+                "site_avatar": "http://suiyan.cc/assets/images/user_circle.png"
+            },
+            {
+                "site_name": "诺依阁的日常记录",
+                "site_url": "https://blog.nuoyis.com/",
+                "site_description": "更多好玩有趣的内容都在这里",
+                "site_avatar": "https://blog.nuoyis.com/favicon.ico"
+            },
+            {
+                "site_name": "图灵技术域",
+                "site_url": "http://www.omegaxyz.com/",
+                "site_description": "徐奕的专栏-机器学习、软件工程、计算机大佬。",
+                "site_avatar": "https://www.omegaxyz.com/wp-content/uploads/2020/01/AI-GIF.gif"
+            },
+            {
+                "site_name": "碎言",
+                "site_url": "https://suiyan.cc",
+                "site_description": "记录并分享个人学习Python、JavaScript的过程和笔记。Life is short, You need JavaScript and Python！",
+                "site_avatar": "https://suiyan.cc/assets/images/avatar.jpg"
             }
         ]
+        
     
     }
 
@@ -202,8 +220,23 @@ simple_blog是一款侧重与内容的博客主题并适配移动端。 本项�
 注意！文章标题为必填！
 
 这个时候就会在`articles`目录下创建一篇文章,并且使用`vscode`直接打开。
+
 如果你没有安装`vscode`的命令行，需要安装后才会打开，但是文件会被创建
 
+### 生成静态文件
+
+    python z.py -i
+
+生成全站静态文件，生成的静态文件会放在`blog`目录下。
+
+### 发布到GitHub
+
+    python z.py -g
+
+发布到GitHub，将`blog`目录下的所有文件上传到GitHub仓库.
+
+此功能需要自行配置GitHub的token，将GitHub站点的仓库与blog绑定，否则会上传失败。
+若是此功能无效果，建议手动更新。
 
 ### 修改博客及站长资料
 
@@ -213,6 +246,7 @@ simple_blog是一款侧重与内容的博客主题并适配移动端。 本项�
 ### 运行站点
 
 本地主题开发编写，推荐使用`Live Server`这个vscode得插件，非常方便。
+
 在配置文件里修改：
 "dev": 1,  # 调试模式，如果改为1，则使用"blog_test_url"来添加静态资源地址前缀，方便本地调试。
 
@@ -222,9 +256,6 @@ simple_blog是一款侧重与内容的博客主题并适配移动端。 本项�
 在jinja2 模板中使用`{{ 属性名称 }}`来调用。
 
 使用其他主题，将主题复制到`theme`目录中，修改配置文件中的"theme": "主题目录",即可启用。
-
-站点图标：
-[FontAwesome 4.7.0 中完整的675个图标样式CSS参考](https://9iphp.com/fa-icons)
 
 ### 部署
 

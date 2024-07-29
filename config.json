@@ -1,50 +1,41 @@
 {
     "dev": 0,
-    "blog_name": "博客名称",
-    "blog_name_en": "博客英文名称",
-    "blog_author": "你的大名",
-    "blog_description_en": "博客简介",
+    "blog_name": "碎言",
+    "blog_name_en": "SuiYan",
+    "blog_author": "J.sky",
+    "blog_description_en": "You see see you , This one day day di.",
     "blog_typed": [
-        "Life is short, you need Python",
-        "人生苦短，我用Python.",
-        "Beautiful is better than ugly.",
-        "美丽优于丑陋.",
-        "Explicit is better than implicit.",
-        "直白优于含蓄.",
-        "Simple is better than complex.",
-        "简单优于复杂.",
-        "Complex is better than complicated.",
-        "复杂优于繁琐.",
-        "Readability counts.",
-        "可读性很重要."
+        "积硅步以致千里",
+        "积怠惰以致深渊",
+        "只比你努力一点的人",
+        "其实已经甩你很远了！"
     ],
-    "meta_description": "Python Django JavaScript 学习讨论,我们是一群热爱Python的程序员，人生苦短，我用JavaScript！",
-    "meta_keywords":"Python,Django,JavaScript,程序员,人生苦短,我用Python",
-    "profile_image":"assets/images/avatar.jpg",
+    "meta_description": "记录并分享个人学习Python、blender的过程和笔记,定期分享原创壁纸。Life is short, You need blender and Python！",
+    "meta_keywords":"壁纸,设计师,Blender,Python,JavaScript,程序员,人生苦短,我用Python",
+    "profile_image":"assets/images/avatar.png",
     "blog_bg": "assets/images/bg.jpg",
-    "theme": "default_theme",
+    "theme": "tailwind_HyperUI",
     "build": "blog",
     "md_dir": "articles",
-    "blog_page_num":8,
-    "blog_test_url":"http://127.0.0.1:5500/",
+    "blog_page_num":12,
+    "blog_test_url":"http://192.168.0.88:5500/",
     "blog_url":"https://suiyan.cc/",
-    "github":"https://github.com/Jsky2020/suiyan/blob/suiyan/articles/",
     "blog_sns": [
         {
             "ico": "github",
             "url": "https://github.com/bosichong/suiyan"
         },
         {
-            "ico": "git",
+            "ico": "gitee",
             "url": "https://gitee.com/J_Sky/suiyan"
         },
         {
-            "ico": "qq",
-            "url": "https://user.qzone.qq.com/285911/"
+            "ico": "mail",
+            "url": "mailto:285911@gmail.com"
         },
         {
-            "ico": "book",
-            "url": "https://www.zhihu.com/people/J_sky/activities"
+            "ico": "bili",
+            "url": "https://space.bilibili.com/275991552"
         },
         {
             "ico": "rss",
@@ -53,25 +44,78 @@
     ],
     "nav": [
         {
-            "ico": "home",
-            "text": "Home",
-            "url": "index.html"
-        },
-        {
             "ico": "archive",
-            "text": "Archive",
+            "text": "归档",
             "url": "archives.html"
         },
         {
             "ico": "tags",
-            "text": "Tags",
+            "text": "标签",
             "url": "tags.html"
+        }
+    ],
+    "links": [
+        {
+            "site_name": "小林笔记",
+            "site_url": "https://m.senlinm.cn",
+            "site_description": "轻生活，秒上签",
+            "site_avatar": "https://senlinm.s3.us-east-005.backblazeb2.com/01.png"
         },
         {
-            "ico": "user",
-            "text": "About Me",
-            "url": "aboutme.html"
+            "site_name": "zhangpingcloud",
+            "site_url": "https://www.zhangpingcloud.tech/",
+            "site_description": "编程爱好者，帅哥一个。",
+            "site_avatar": "http://suiyan.cc/assets/images/user_circle.png"
+        },
+        {
+            "site_name": "特立独行的异类",
+            "site_url": "https://www.demochen.com",
+            "site_description": "一张肆无忌惮的脸，一颗桀骜不驯的心。",
+            "site_avatar": "https://www.demochen.com/images/avatar.png"
+        },
+        {
+            "site_name": "八咫乌",
+            "site_url": "https://www.vergilisme.com/",
+            "site_description": "思君如满月，夜夜减清辉",
+            "site_avatar": "https://www.vergilisme.com/usr/themes/Lumieres/fonts/logo_vertical.svg"
+        },
+        {
+            "site_name": "ScarSu - 终身成长,前端技术,信息源",
+            "site_url": "https://www.scarsu.com",
+            "site_description": "96女性程序员，以终身成长为人生意义，热爱前端技术，喜欢读各种书，关注效率提升、自我管理、心智成长、认知提升、极简生活。",
+            "site_avatar": "https://scarsu.oss-cn-shanghai.aliyuncs.com/picgo20201012144739.jpg"
+        },
+        {
+            "site_name": "BORBER",
+            "site_url": "https://blog.borber.top/",
+            "site_description": "跌宕歌词 纵横书卷 不与遣年华",
+            "site_avatar": "https://cdn.jsdelivr.net/gh/Borber/PublicPic1/headImg/head.png"
+        },
+        {
+            "site_name": "胡涂说",
+            "site_url": "https://hutusi.com/",
+            "site_description": "中文独立博客，任抛星汉归园圃，留取乾坤盛酒囊。",
+            "site_avatar": "http://suiyan.cc/assets/images/user_circle.png"
+        },
+        {
+            "site_name": "诺依阁的日常记录",
+            "site_url": "https://blog.nuoyis.com/",
+            "site_description": "更多好玩有趣的内容都在这里",
+            "site_avatar": "https://blog.nuoyis.com/favicon.ico"
+        },
+        {
+            "site_name": "图灵技术域",
+            "site_url": "http://www.omegaxyz.com/",
+            "site_description": "徐奕的专栏-机器学习、软件工程、计算机大佬。",
+            "site_avatar": "https://www.omegaxyz.com/wp-content/uploads/2020/01/AI-GIF.gif"
+        },
+        {
+            "site_name": "碎言",
+            "site_url": "https://suiyan.cc",
+            "site_description": "记录并分享个人学习Python、JavaScript的过程和笔记。Life is short, You need JavaScript and Python！",
+            "site_avatar": "https://suiyan.cc/assets/images/avatar.jpg"
         }
     ]
+    
 
 }
