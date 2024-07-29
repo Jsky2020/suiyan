@@ -15,6 +15,10 @@ def create_test():
     s.create_test(20)
     messagebox.showinfo("提示！", "测试文档创建完毕！")
 
+def upgithub():
+    s.up_github()
+    messagebox.showinfo("提示！", "正在部署到GitHub pages")
+
 
 
 def newmd():
@@ -35,8 +39,9 @@ def main():
     mighty.pack(fill=tk.X, side=tk.TOP)
 
     bt1 = tk.Button(mighty, width=50, text="新建一篇博客.md", command=newmd).pack(fill=tk.X)
+    bt3 = tk.Button(mighty, text="更新并生成所有静态页面", command=upall).pack(fill=tk.X)
+    bt4 = tk.Button(mighty, text="更新部署到GitHub pages", command=upall).pack(fill=tk.X)
     bt2 = tk.Button(mighty, text="创建测试文档", command=create_test).pack(fill=tk.X)
-    bt3 = tk.Button(mighty, text="更新生成所有静态页面", command=upall).pack(fill=tk.X)
 
     root.mainloop()
 

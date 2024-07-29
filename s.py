@@ -20,7 +20,7 @@ import aiofiles
 from markdown import markdown
 from utils import *
 
-APP_CONFIG = "config_new.json"
+APP_CONFIG = "config.json"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # 当前目录地址
 CONFIG = load_configjson(os.path.join(BASE_DIR, APP_CONFIG))  # 获取当前配置
 BLOGPAGES = os.path.join(BASE_DIR, CONFIG["build"])  # 所有静态资源存放目录
@@ -29,7 +29,7 @@ THEME = os.path.join(BASE_DIR, "theme")  # 主题目录
 CONFIGJSON = os.path.join(BASE_DIR, APP_CONFIG)
 BLOGCONFIG = os.path.join(BLOGPAGES, 'config.json')
 BLOGDATAJSON = os.path.join(BLOGPAGES, 'blog_data.json')
-SUIYANVERSION = "3.1.0"  # 程序版本
+SUIYANVERSION = "3.2.0"  # 程序版本
 
 
 def create_context():
@@ -200,10 +200,26 @@ def create_search_html():
     # 设置jinja模板
     env = Environment(loader=FileSystemLoader(os.path.join(THEME, config["theme"])))
     context = create_context()
+    context["title"] = "搜索"
     tmp = env.get_template("search.html")  # 模板
-    search_html_path = os.path.join(BLOGPAGES, 'search.html')  # 首页HTML
+    search_html_path = os.path.join(BLOGPAGES, 'search.html')  # 模板路径
     # 组装search页面的上下文数据。
     with open(search_html_path, mode='w', encoding='utf-8') as f:
+        f.write(tmp.render(**context))
+    logger.info('生成search.html成功！')
+
+def create_links_html():
+    """生成links.html友情链接页面"""
+    config = load_configjson(CONFIGJSON)
+    # 设置jinja模板
+    env = Environment(loader=FileSystemLoader(os.path.join(THEME, config["theme"])))
+    context = create_context()
+    context["links"] = config["links"]
+    context["title"] = "友情链接"
+    tmp = env.get_template("links.html")  # 模板
+    links_html_path = os.path.join(BLOGPAGES, 'links.html')  # 模板路径
+    # 组装links页面的上下文数据。
+    with open(links_html_path, mode='w', encoding='utf-8') as f:
         f.write(tmp.render(**context))
     logger.info('生成search.html成功！')
 
@@ -361,6 +377,7 @@ def created():
     create_archives_html()
     create_tags_html()
     create_search_html()
+    create_links_html()
     create_allblog()
     create_sitemap()
     create_rss()
@@ -402,6 +419,10 @@ def copy_seo():
     if os.path.isdir(seo_dir):
         copy_all_files(seo_dir, BLOGPAGES)
 
+def up_github():
+    '''更新所有静态文件到GitHub'''
+    sync_to_remote_repo(BLOGPAGES)
+
 
 
 
@@ -433,7 +454,7 @@ def main():
     elif args.index:
         create_all()
     elif args.git:
-        sync_to_remote_repo(BLOGPAGES)
+        up_github()
     else:
         print(parser.print_help())  # 默认打印帮助
 
@@ -450,3 +471,5 @@ if __name__ == "__main__":
     #                    'description': '最近写了一些前端的项目使用了一些框架例，但是突然发现自己的前端基础是如此的渣，渣的自己好尴尬，遂决定重新学习并复习一下前端的HTML CSS JavaScript基础。',
     #                    'url':         '2023/20230413095913', 'uptime': '2023-04-16 18:03:47'})
     # print(kk)
+
+
