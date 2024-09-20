@@ -104,7 +104,7 @@ def create_rss():
     logger.info('生成rss.xml成功！')
 
 
-def create_index_html():
+async def create_index_html():
     """
     批量生成首页和列表页
     """
@@ -116,11 +116,12 @@ def create_index_html():
     env = Environment(loader=FileSystemLoader(os.path.join(THEME, config["theme"])))
     tmp = env.get_template("index.html")  # 模板
 
-    # 异步
-    ct = [create_list_html(config, blog_data, tmp, i, ps) for i in range(ps)]  # 列表生成式
-    # loop = asyncio.get_event_loop()
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(asyncio.wait(ct))
+    ct = [create_list_html(config, blog_data, tmp, i, ps) for i in range(ps)]
+    # 创建任务并运行它们
+    tasks = [asyncio.create_task(coro) for coro in ct]
+    # 等待所有任务完成
+    await asyncio.gather(*tasks)
+    # 所有任务完成后，记录信息
     logger.info('生成首页、列表页成功！')
 
 
@@ -247,7 +248,7 @@ def create_tags_html():
     logger.info('生成tags.html成功！')
 
 
-def create_allblog():
+async def create_allblog():
     """创建所有blog静态页面"""
     blogdata = load_blogdata_json(BLOGDATAJSON)  # 获得blog的博文数据
     tagsdata = create_tagsdata(blogdata)
@@ -266,11 +267,12 @@ def create_allblog():
     env = Environment(loader=FileSystemLoader(os.path.join(THEME, config["theme"])))
     tmp = env.get_template("blog.html")  # 模板
 
-    ct = [create_blog_html(blogdata, tagsdata, tmp, blog) for blog in blogdata]  # 列表生成式
-    # loop = asyncio.get_event_loop()
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(asyncio.wait(ct))
-    # loop.close()
+    ct = [create_blog_html(blogdata, tagsdata, tmp, blog) for blog in blogdata]
+    # 创建任务并运行它们
+    tasks = [asyncio.create_task(coro) for coro in ct]
+    # 等待所有任务完成
+    await asyncio.gather(*tasks)
+    # 所有任务完成后，记录信息
     logger.info('生成所有文章页成功！')
 
 
@@ -373,12 +375,12 @@ def created():
     """
     创建所有静态资源
     """
-    create_index_html()
+    asyncio.run(create_index_html())
     create_archives_html()
     create_tags_html()
     create_search_html()
     create_links_html()
-    create_allblog()
+    asyncio.run(create_allblog())
     create_sitemap()
     create_rss()
 
