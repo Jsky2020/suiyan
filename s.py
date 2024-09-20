@@ -221,7 +221,7 @@ def create_links_html():
     # 组装links页面的上下文数据。
     with open(links_html_path, mode='w', encoding='utf-8') as f:
         f.write(tmp.render(**context))
-    logger.info('生成search.html成功！')
+    logger.info('生成links.html成功！')
 
 
 def create_tags_html():
