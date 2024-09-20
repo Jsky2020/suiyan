@@ -1,0 +1,64 @@
+:root {
+  --rainbow-gradient: linear-gradient(
+    -90deg,
+    #602ce5 0,
+    #2ce597 30%,
+    #e7bb18 50%,
+    #ff7657 70%,
+    #45c1ee 90%,
+    #2ce597 100%
+  );
+}
+
+.card-body:hover{
+  .list-title {
+    background-image: var(--rainbow-gradient, #fff);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+}
+
+
+.sider-top {
+  top: -101vh;
+}
+.sider-left {
+  left: calc((100% - 768px) / 2 - 80px);
+}
+
+#scrollUp {
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+}
+
+.tag {
+  text-transform: none;
+}
+
+.list-group-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-group-item:hover{
+  background-image: var(--rainbow-gradient, #fff);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+
+}
+
+
+img {
+  height: auto;
+  width: 100%;
+}

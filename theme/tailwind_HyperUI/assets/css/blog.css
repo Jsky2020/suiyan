@@ -1,0 +1,50 @@
+:root {
+    --rainbow-gradient: linear-gradient(
+      -90deg,
+      #602ce5 0,
+      #2ce597 30%,
+      #e7bb18 50%,
+      #ff7657 70%,
+      #45c1ee 90%,
+      #2ce597 100%
+    );
+  }
+
+  h1{
+    background-image: var(--rainbow-gradient, #fff);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+
+h2{
+    font-size: 24px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+h4{
+    font-size: 18px;
+}
+
+h2,h3,h4,p{
+    margin: 12px 0;
+}
+
+h2,h3,h4{
+    font-weight: 500;
+}
+
+code{
+    font-size: 12px;
+}
+
+ul,ol{
+    list-style: none;
+}

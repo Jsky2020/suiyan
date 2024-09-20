@@ -1,0 +1,81 @@
+{% extends "layout.html" %} {% block title %}{{ blog.title }}{% endblock %} {%
+block keywords %}{% set tags = blog.tag.split(",") %}{% for tag in tags %}{{ tag
+}}{% endfor %}{% endblock %} {% block description %}{{ blog.description }}{%
+endblock %} {% block article %}
+<!-- Template Main CSS File -->
+<link href="{{ site_url }}assets/css/blog.css" rel="stylesheet">
+<link rel="stylesheet"
+      href="{{ site_url }}assets/css/default.min.css">
+<script src="{{ site_url }}assets/js/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+  <div class="mb-4">
+    <h1 class="text-3xl font-medium">{{ blog.title }}</h1>
+    <div class="text-sm flex flex-wrap my-2">
+      作者:<a href="#">{{ blog.author }}</a> · 发表于:<div class="tooltip" data-tip="{{ blog.time }}"><span
+        class="cr-time"
+        >{{ blog.time }}</span></div>
+      · 更新于:<div class="tooltip" data-tip="{{ blog.uptime }}"><span class="up-time">{{ blog.uptime }}</span></div>
+      · Tag: {% set tags = blog.tag.split(",") %} {% for tag in tags %} {{ tag
+      }} {% endfor %}
+      </small>
+    </div>
+  </div>
+
+  <div class="mb-4">{{ data }}</div>
+
+  <div class="blog_footer">
+    <div class="prev_next flex justify-between my-4">
+      {% if pn.prev != None %}
+      <a href="{{ site_url }}{{pn.prev.url}}.html" class="text-accent text-md"
+        ><button class="btn"> prev </button></a
+      >
+      {% endif %} {% if pn.next != None %}
+      <a href="{{ site_url }}{{pn.next.url}}.html" class="text-accent text-md"
+        ><button class="btn"> next </button></a
+      >
+      {% endif %}
+    </div>
+    {% if related[0] is defined %}
+    <div class="related">
+      <p>相关文章：</p>
+      <ul>
+        {% for t in related %}
+        <li class="list-group-item">
+          <a href="{{ site_url }}{{t.url}}.html" class="link link-hover"
+            ><span>{{ t.title }}</span></a
+          >
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <!-- <div class="mb-4 my-2 flex flex-wrap items-center justify-center gap-2">
+      <button id="load-comments-btn" class="btn btn-wide">加载评论</button>
+      <div id="comments-container" class="w-full"></div>
+    </div> -->
+
+  </div>
+
+  <script src="https://giscus.app/client.js"
+  data-repo="bosichong/bosichong.github.io"
+  data-repo-id="R_kgDOJLHieA"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOJLHieM4CWhL8"
+  data-mapping="title"
+  data-strict="1"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+
+
+
+{% endblock %}
