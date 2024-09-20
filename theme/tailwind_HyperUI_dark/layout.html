@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="{% block keywords %}{% endblock %}" name="keywords" />
+    <meta content="{% block description %}{% endblock %}" name="description" />
+    <meta content="{{ blog_author }}" name="author" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ site_url }}assets/images/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ site_url }}assets/images/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <title>
+      {% block title %}{% endblock %} | {{ blog_name_en }} {{ blog_name }}
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ site_url }}assets/js/tailwind.config.js"></script>
+
+    <!-- Template Main CSS File -->
+    <link href="{{ site_url }}assets/css/style.css" rel="stylesheet" />
+
+
+
+
+  </head>
+
+  <body class="bg-stone-950 bg-[url('/assets/images/stardust.png')] text-cyan-600">
+    <nav class="sticky top-0 h-16 px-4 z-10 bg-opacity-90 backdrop-blur">
+      <div class="container h-16 xl:w-3/5 mx-auto flex items-center">
+        <div class="justify-start w-1/5">
+          <div class="artlist m-auto w-16 p-1 text-center text-2xl">
+            <a class="transition text-orange-600 hover:text-rose-600" href="{{ site_url }}">{{ blog_name }}</a>
+          </div>
+        </div>
+        <div class="justify-end w-4/5 flex">
+          <ul class="flex text-center text-sm gap-6 list-none">
+            {% for n in nav %}
+            <li class="artlist p-1 m-auto">
+              <a
+                href="{{ site_url }}{{ n.url }}"
+                class="transition text-orange-600 hover:text-rose-600"
+              >
+                {{ n.text }}</a
+              >
+            </li>
+            {% endfor %}
+            <li class="artlist p-1 m-auto">
+                  <a href="{{ site_url }}search.html" aria-label="Search page"
+                  class="transition text-orange-600 hover:text-rose-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-search"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path
+                        d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"
+                      ></path>
+                      <path d="M21 21l-6 -6"></path>
+                    </svg>
+                  </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="container max-w-3xl mx-auto leading-normal text-lg font-extralight"
+    >
+      <div class="p-4">{% block article %}{% endblock %}</div>
+
+      <!-- ======= Footer ======= -->
+
+      {% include 'footer.html' %}
+
+      <!-- End  Footer -->
+    </div>
+
+    <div class="rightside fixed bottom-40 right-2 w-10">
+      <!-- Component: Base secondary button with icon  -->
+      <button
+        id="topButton"
+        aria-label="arrow-up"
+        onclick="scrollToTop()"
+        class="artlist m-auto transition text-orange-600 hover:text-rose-600 hidden"
+              >
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-square-rounded-arrow-up"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M16 12l-4 -4l-4 4"></path>
+            <path d="M12 16v-8"></path>
+            <path
+              d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"
+            ></path>
+          </svg>
+        </span>
+      </button>
+      <!-- End Base secondary button with icon  -->
+    </div>
+        <!-- CDN example (unpkg) day.js -->
+        <script src="{{ site_url }}assets/js/dayjs.min.js"></script>
+        <script src="{{ site_url }}assets/js/relativeTime.js"></script>
+        <script src="{{ site_url }}assets/js/zh-cn.js"></script>
+        <!-- Template Main JS File -->
+        <script src="{{ site_url }}assets/js/main.js"></script>
+  </body>
+</html>

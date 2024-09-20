@@ -1,0 +1,32 @@
+{% extends "layout.html" %} {% block title %}{{ title }}{% endblock %} {% block
+keywords %} {{ meta_keywords }}{% endblock %} {% block description %}{{
+blog_name }}-文章归档{% endblock %} {% block article %}
+
+<div class="mx-2 my-8">
+  <h1 class="text-3xl">文章归档</h1>
+  <div>
+    <span class="text-sm"> 共有文章:{{ pages_num }}篇,最后更新:{{ update}} </span>
+  </div>
+</div>
+<div class="w-full">
+  {% for ar in archives %}
+  <div class="mx-2 my-12">
+    <div class="text-xl font-light my-6">
+      {{ ar.date }} 
+    </div>
+    <div> 
+      <ul class="list-group">
+        {% for a in ar.data %}
+        <li class="list-group-item hover:animate-bounce">
+          <a href="{{ site_url }}{{a.url}}.html" target="_blank">
+            {{ a.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

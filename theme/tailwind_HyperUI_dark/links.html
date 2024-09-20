@@ -1,0 +1,65 @@
+{% extends "layout.html" %} {% block title %}{{ title }}{% endblock %} {% block
+keywords %} {{ meta_keywords }}{% endblock %} {% block description %}{{
+blog_name }}-友情链接{% endblock %} {% block article %}
+
+<div>
+  <h1 class="text-3xl">友情链接</h1>
+  <div class="my-4">
+    <span class="text-sm"> 与你链接是我的荣幸，感谢这些可爱的博主坚持撰写精彩博文，在这个冷酷的星球上分享自己的光芒与热情！</span>
+  </div>
+</div>
+
+<div class="container-fluid py-4">
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 my-4">
+    {% for l in links %}
+              <div class="rounded-lg artlist">
+                  <article
+                      class="rounded-lg border border-cyan-600 hover:border-none p-4 sm:p-6">
+                      <div class="hidden sm:block sm:shrink-0">
+                          <img
+                              alt={{l.site_name}}
+                              src={{l.site_avatar}}
+                              class="h-16 w-16 rounded-lg object-cover"
+                          />
+                      </div>
+
+                      <a href="#">
+                          <h3 class="mt-0.5 text-lg font-medium">
+                              {{l.site_name}}
+                          </h3>
+                      </a>
+
+                      <p class="mt-2 line-clamp-3 text-sm/relaxed">
+                          {{l.site_description}}
+                      </p>
+
+                      <a href={{l.site_url}} target="_blank"
+                         class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-orange-600">
+                          Find out more <span aria-hidden="true"
+                                              class="block transition-all group-hover:ms-0.5 rtl:rotate-180">&rarr;</span>
+                      </a>
+                  </article>
+              </div>
+              {% endfor %}
+  </div>
+
+  <script src="https://giscus.app/client.js"
+  data-repo="bosichong/bosichong.github.io"
+  data-repo-id="R_kgDOJLHieA"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOJLHieM4CWhL8"
+  data-mapping="title"
+  data-strict="1"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="dark_dimmed"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+
+</div>
+
+{% endblock %}

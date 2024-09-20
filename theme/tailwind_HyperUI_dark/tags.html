@@ -1,0 +1,33 @@
+{% extends "layout.html" %} {% block title %}{{ title }}{% endblock %} {% block
+keywords %} {{ meta_keywords }}{% endblock %} {% block description %}{{
+blog_name }}-Tag 标签{% endblock %} {% block article %}
+
+<div>
+  <h1 class="text-3xl">TAGS</h1>
+  <div>
+    <span class="text-sm"> 共有标签:{{ tag_num }}个 </span>
+  </div>
+</div>
+
+<div class="tags container-fluid py-4">
+ {% for tag in tags %}
+  <span
+    class="tag hover:animate-bounce cursor-pointer inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10"
+    data-tag="tagdata{{ loop.index }}"
+  >
+    {{ tag.tag }}({{ tag.data | length }})
+  </span>
+  <ul class="tagdata tagdata{{ loop.index }} list-group" style="display: none">
+    {% for a in tag.data %}
+    <li class="list-group-item">
+      <a href="{{ site_url }}{{a.url}}.html">{{ a.title }}</a>
+      {% endfor %}
+    </li>
+  </ul>
+
+  {% endfor %}
+</div>
+
+<script src="{{ site_url }}assets/js/tag.js"></script>
+
+{% endblock %}

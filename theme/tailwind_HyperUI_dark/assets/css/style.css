@@ -1,0 +1,151 @@
+:root {
+  --rainbow-gradient: linear-gradient(
+    -90deg,
+    #602ce5 0,
+    #2ce597 30%,
+    #e7bb18 50%,
+    #ff7657 70%,
+    #45c1ee 90%,
+    #2ce597 100%
+  );
+}
+
+.card-body:hover{
+  .list-title {
+    background-image: var(--rainbow-gradient, #fff);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+}
+
+
+.sider-top {
+  top: -101vh;
+}
+.sider-left {
+  left: calc((100% - 768px) / 2 - 80px);
+}
+
+#scrollUp {
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+}
+
+.tag {
+  text-transform: none;
+}
+
+.list-group-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-group-item:hover{
+  background-image: var(--rainbow-gradient, #fff);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+
+}
+
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+
+
+
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+
+.artlist {
+  
+  margin: 18px;
+  background: #1c1917;
+  position: relative;
+  border-radius: 8px;
+  animation: none;
+  opacity: 1;
+}
+
+
+.artlist:hover {
+  opacity: 1;
+  color: #06b6d4;
+}
+
+.artlist:hover:before {
+  content: "";
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    red,
+    rgb(255, 115, 0),
+    rgb(255, 251, 0),
+    rgb(72, 255, 0),
+    rgb(0, 255, 213),
+    rgb(0, 43, 255),
+    rgb(122, 0, 255),
+    rgb(255, 0, 200),
+    red
+  );
+  position: absolute;
+  z-index: -1;
+  top: -2px;
+  left: -2px;
+  opacity: 1;
+  animation: spin 3s ease-in-out infinite;
+}
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 720deg;
+  }
+}
+
+
+
+.artlist_border:before {
+  content: "";
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    red,
+    rgb(255, 115, 0),
+    rgb(255, 251, 0),
+    rgb(72, 255, 0),
+    rgb(0, 255, 213),
+    rgb(0, 43, 255),
+    rgb(122, 0, 255),
+    rgb(255, 0, 200),
+    red
+  );
+  position: absolute;
+  z-index: -1;
+  top: -2px;
+  left: -2px;
+  opacity: 0.2;
+}
